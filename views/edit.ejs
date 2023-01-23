@@ -1,0 +1,46 @@
+<!-- calling common header with login navigation bar using include method of express-->
+<%- include('includes/dashboardHeader.ejs') %>
+<main>
+    <div class="container">
+        <h1>Edit</h1>
+        <!-- form to show user with value when user want to edit  -->
+        <form name="myform" action="/editprocess" method="POST" 
+        enctype="multipart/form-data">
+        <!--sending hidden id input field with value id in order to update content-->
+        <input type="hidden" name="id" value="<%= id %>">
+        <!-- outputing the content inside value attribute of the input field that user added while requesting for the first time for all the field same as homepage -->
+            <div class="formContainer">
+                <div class="formFields">   
+                    <label>Name:</label>
+                </div>
+                <div class="formFields">
+                    <input type="text" name="flName" id="flName" value="<%= flName %>">
+                </div>
+                <div class="formFields">
+                    <label>Email/Phone:</label>
+                </div>
+                <div class="formFields">
+                    <input type="text" name="emailPhone" id="emailPhone" value="<%= emailPhone %>">
+                </div>
+                <div class="formFields">
+                    <label>Photo:</label>
+                </div>
+                <div class="formFields uploadFile">
+                    <input type="file" name="photo" id="photo"> 
+                    <!-- just showing previous image that user uploaded for the first time but anyways user has to upload the image all the time when editing -->
+                    <img src="/uploads/<%= photoname %>" alt="<%= photoname %>" style="max-width: 100px; margin: 20px;">
+                 </div>
+            </div>
+            <div class="messageArea">
+                <!-- description value is outputing with '-' dash and not equal '=' just to avoid html tags for tinymce (WISIWING) editor  -->
+                <textarea name="description" id="description"><%- description %></textarea>
+            </div>
+            <div class="submitBtn">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include('includes/footer.ejs') %>
+<!-- calling common footer using include method of express-->

@@ -1,0 +1,29 @@
+<!-- calling common header with login navigation bar using include method of express-->
+<%- include('includes/dashboardHeader.ejs') %>
+
+<main>
+    <div class="viewContainer">
+        <h1>View</h1>
+        <div class="viewFormContainer">
+            <!-- showing image with dynamic path and dynamic name of image that user uploads -->
+            <img src="/uploads/<%= photoname %>" alt="<%= photoname %>">
+            <div class="viewFields">   
+                <label>Name:</label> 
+                <!-- showing customer name, email/phone and description value output using varibale created in index.js file -->
+                <span><%= flName %></span>
+            </div>
+            <div class="viewFields">   
+                <label>Email/Phone:</label> 
+                <span><%= emailPhone %></span>
+            </div>
+            <div class="viewFields">   
+                <label>Issue Description:</label> 
+                <!-- used '-' to avoid html tags white outputing the value from tinymce editor -->
+                <P><%- description %></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('includes/footer.ejs') %>
+<!-- calling common footer using include method of express-->

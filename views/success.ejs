@@ -1,0 +1,12 @@
+<!-- calling common header with login navigation bar using include method of express-->
+<%- include('includes/dashboardHeader.ejs') %>
+<!-- this page will get dynamic message for edited successfully and deleted successfully -->
+<main>
+    <div class="containerMsg">
+        <h1>Thank you</h1>
+        <!-- outputing message through message variable sending in pagedata to frontend for edit and delete from index.js -->
+        <p><%= message %></p>
+    </div>
+</main>
+<%- include('includes/footer.ejs') %>
+<!-- calling common footer using include method of express-->

@@ -1,0 +1,40 @@
+<!-- calling common header with login navigation bar using include method of express-->
+<%- include('includes/dashboardHeader.ejs') %>
+<main>
+    <div class="boardContainer">
+        <h1>Dashboard</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email/Phone</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <!-- iterating customerinformation varibale with data from index.js when created when finding data from database on get method -->
+            <!-- storing data in for loop local variable customerinfo -->
+            <%
+                for(customerinfo of customerInformations){
+            %>
+            <tr>
+                <!-- calling all the data for output -->
+                <td><%= customerinfo._id %></td>
+                <td><%= customerinfo.flName %></td>
+                <td><%= customerinfo.emailPhone %></td>
+                <!-- for view, edit and delete it will open up perticular id request from dashboard when clicked -->
+                <td style="font-weight: bold;"><a href="/view/<%= customerinfo._id %>">View</a></td>
+                <td style="font-weight: bold;"><a href="/edit/<%= customerinfo._id %>">Edit</a></td>
+                <td style="font-weight: bold;"><a href="/delete/<%= customerinfo._id %>">Delete</a></td>
+            </tr>
+            <%
+            }
+
+            %>
+            
+
+        </table>
+    </div>
+</main>
+<%- include('includes/footer.ejs') %>
+<!-- calling common footer using include method of express-->

@@ -1,0 +1,43 @@
+<!-- calling common header without login navigation bar using include method of express  -->
+<%- include('includes/header.ejs') %> 
+<main>
+    <!-- <h2 class="anouncement">We are fixing Bugs for your software. You can generate a new ticket by Add New Feature to register your bug and submit to us for recovery.</h2> -->
+    <div class="container">
+        <h1>New Request</h1>
+        <!-- Homepage new request form with input fields and labels created -->
+        <form name="myform" action="process" method="POST" 
+        enctype="multipart/form-data">
+            <div class="formContainer">
+                <div class="formFields">   
+                    <label>Name:</label>
+                </div>
+                <div class="formFields">
+                    <input type="text" name="flName" id="flName">
+                </div>
+                <div class="formFields">
+                    <label>Email/Phone:</label>
+                </div>
+                <div class="formFields">
+                    <input type="text" name="emailPhone" id="emailPhone">
+                </div>
+                <div class="formFields">
+                    <label>Photo:</label>
+                </div>
+                <div class="formFields uploadFile">
+                   <input type="file" name="photo" id="photo"> 
+                   
+                </div>
+            </div>
+            <div class="messageArea">
+                <!-- WISIWING (tinymce) editor used  -->
+                <textarea name="description" id="description" ></textarea> 
+            </div>
+            <div class="submitBtn">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</main>
+<%- include('includes/footer.ejs') %>
+<!-- calling common footer from includes folder using include method of express-->
+    
